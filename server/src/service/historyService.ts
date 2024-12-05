@@ -43,7 +43,7 @@ class HistoryService {
     // return the parsed array - ie. JSON.parse(rawArray);
   }
 
-  // COMPLETE Define a write method that writes the updated cities array to the db.json file
+  // Define a write method that writes the updated cities array to the db.json file
   private async write(cities: City[]): Promise<void> {
     try {
       // Convert the cities array to a JSON string
