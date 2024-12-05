@@ -1,17 +1,13 @@
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { Response, Router } from 'express';
-
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { Router } from 'express';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const router = Router();
 
-// TODO: Define route to serve index.html
-if (process.env.PORT) {
-    router.get('*', (_, responseObj: Response) => {
-        const __filename = fileURLToPath(import.meta.url);
-        const __dirname = dirname(__filename);
-
-        responseObj.sendFile(path.join(__dirname, '../../../client/dist/index.html'));
-    });
-}
+//Define route to serve index.html
+router.get('*', (_, res) => {
+    res.sendFile(path.join(__dirname, '../../../client/index.html'));
+});
 
 export default router;
